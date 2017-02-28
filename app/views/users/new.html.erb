@@ -1,0 +1,7 @@
+<h1>Messenger</h1>
+
+<%= simple_form_for(@user, url: user_path, method: :post, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.input :username %>
+  <%= f.input :dialect, collection: ["Yoda", "Valley Girl", "Binary Code"] %>
+  <%= f.submit %>
+<% end %>
