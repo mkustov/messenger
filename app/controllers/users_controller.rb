@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    session[:username] = user_params[:username]
+    session[:dialect] = user_params[:dialect]
+    redirect_to :chat
   end
 
   def show
@@ -14,6 +17,7 @@ class UsersController < ApplicationController
 
   private
 
-  def chat_params
+  def user_params
+    params.require(:user).permit(:username, :dialect)
   end
 end
