@@ -2,7 +2,7 @@ jQuery(document).on 'turbolinks:load', ->
   messages = $('#messages')
   active_users = $('#active-users')
   if $('#messages').length > 0
-    refresh_users_list = (username, user)->
+    add_user_to_list = (username, user)->
       listed_user = active_users.find('*[data-username="' + username + '"]')
       unless listed_user.length > 0
         active_users.append user
@@ -18,17 +18,18 @@ jQuery(document).on 'turbolinks:load', ->
 
       received: (data) ->
         messages.append data['message']
-        refresh_users_list data['username'], data['user']
+        add_user_to_list data['username'], data['user']
 
-      send_message: (message, user) ->
-        @perform 'send_message', text: message, user: user
+      send_message: (message, user, dialect) ->
+        @perform 'send_message', text: message, user: user, dialect: dialect
 
     $('#new_message').submit (e) ->
       $this = $(this)
       textarea = $this.find('#message_text')
       user = $this.find('#message_user')
+      dialect = $this.find('#message_dialect')
       if $.trim(textarea.val()).length > 0
-        App.global_chat.send_message textarea.val(), user.val()
+        App.global_chat.send_message textarea.val(), user.val(), dialect.val()
         textarea.val('')
       e.preventDefault()
       return false

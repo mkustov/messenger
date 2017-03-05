@@ -58,8 +58,9 @@ development:
 test:
   <<: *default
   database: messenger_test
-  username: action_cable_test_2
+  username: messenger
   password: password
+  host: localhost
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

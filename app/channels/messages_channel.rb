@@ -8,6 +8,6 @@ class MessagesChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    Message.create!(text: data['text'], user: data['user'])
+    Message.create!(text: data['text'], user: data['user'], dialect: data['dialect'])
   end
 end
