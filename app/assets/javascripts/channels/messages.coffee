@@ -1,7 +1,11 @@
 jQuery(document).on 'turbolinks:load', ->
   messages = $('#messages')
-  console.log(messages)
+  active_users = $('#active-users')
   if $('#messages').length > 0
+    refresh_users_list = (username, user)->
+      listed_user = active_users.find('*[data-username="' + username + '"]')
+      unless listed_user.length > 0
+        active_users.append user
 
     App.global_chat = App.cable.subscriptions.create {
         channel: "MessagesChannel"
@@ -14,6 +18,7 @@ jQuery(document).on 'turbolinks:load', ->
 
       received: (data) ->
         messages.append data['message']
+        refresh_users_list data['username'], data['user']
 
       send_message: (message, user) ->
         @perform 'send_message', text: message, user: user
