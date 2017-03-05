@@ -10,9 +10,8 @@
   <% end %>
 </div>
 
-<%= form_for @message, url: '#' do |f| %>
-  <%= f.label :text %>
-  <%= f.text_area :text %>
-  <%= f.hidden_field :user, value: session['username'] %>
+<%= simple_form_for @message, url: '#' do |f| %>
+  <%= f.input :text %>
+  <%= f.input :user, as: :hidden, input_html: { value: session['username'] } %>
   <%= f.submit 'Send' %>
 <% end %>
