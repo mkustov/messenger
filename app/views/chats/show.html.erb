@@ -1,22 +1,13 @@
-<%= session[:username] %>
-<%= session[:dialect] %>
-
-<div id='messages'>
-<% @messages.each do |message| %>
-    <div>
-      <%= message.user %>
-      <%= message.text %>
+<div class="row">
+  <div class="col">
+    <h3>Messages</h3>
+    <div id='messages'>
+      <% @messages.each do |message| %>
+          <%= render message %>
+        <% end %>
     </div>
-  <% end %>
-</div>
+    <%= render 'new_message' %>
+  </div>
 
-<%= simple_form_for @message, url: '#' do |f| %>
-  <%= f.input :text %>
-  <%= f.input :user, as: :hidden, input_html: { value: session['username'] } %>
-  <%= f.input :dialect, as: :hidden, input_html: { value: session['dialect'] } %>
-  <%= f.submit 'Send' %>
-<% end %>
-
-<div id='active-users'>
-  <h3>Active users</h3>
+  <%= render 'active_users' %>
 </div>

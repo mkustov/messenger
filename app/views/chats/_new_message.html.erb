@@ -1,0 +1,6 @@
+<%= simple_form_for @message, url: '#' do |f| %>
+  <%= f.input :text, label: false %>
+  <%= f.input :user, as: :hidden, input_html: { value: session['username'] } %>
+  <%= f.input :dialect, as: :hidden, input_html: { value: session['dialect'] } %>
+  <%= f.submit 'Send' %>
+<% end %>
