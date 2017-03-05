@@ -1,14 +1,18 @@
 <%= session[:username] %>
 <%= session[:dialect] %>
 
+<div id='messages'>
 <% @messages.each do |message| %>
-  <div>
-    <%= message.user %>
-    <%= message.text %>
-  </div>
-<% end %>
+    <div>
+      <%= message.user %>
+      <%= message.text %>
+    </div>
+  <% end %>
+</div>
 
-<%= simple_form_for @message, remote: true do |f| %>
-  <%= f.input :text %>
+<%= form_for @message, url: '#' do |f| %>
+  <%= f.label :text %>
+  <%= f.text_area :text %>
+  <%= f.hidden_field :user, value: session['username'] %>
   <%= f.submit 'Send' %>
 <% end %>
