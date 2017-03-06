@@ -1,7 +1,7 @@
-describe "sign in process", type: :feature do
-  it "signs me in" do
+describe 'sign in process', type: :feature do
+  it 'signs me in' do
     visit '/'
-    within("#new_user") do
+    within('#new_user') do
       fill_in 'user_username', with: 'yoda'
       select 'Yoda', from: 'user_dialect'
     end

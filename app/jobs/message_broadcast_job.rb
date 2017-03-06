@@ -2,7 +2,10 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    ActionCable.server.broadcast "messages", message: render_message(message), username: message.user, user: render_user(message.user)
+    ActionCable.server.broadcast 'messages',
+                                 message: render_message(message),
+                                 username: message.user,
+                                 user: render_user(message.user)
   end
 
   private

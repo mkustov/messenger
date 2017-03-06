@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
-
   def new
     @user = User.new
   end
@@ -10,9 +7,6 @@ class UsersController < ApplicationController
     session[:username] = user_params[:username]
     session[:dialect] = user_params[:dialect]
     redirect_to :chat
-  end
-
-  def show
   end
 
   private
