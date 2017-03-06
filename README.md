@@ -11,3 +11,5 @@ To run test (both unit and integration) run:
 ```
 rspec
 ```
+
+Additional feature - Emoji support.
