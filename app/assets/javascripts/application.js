@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cable
+//= require rails_emoji_picker
 //= require_tree .

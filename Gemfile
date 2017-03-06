@@ -35,6 +35,7 @@ gem 'bootstrap'
 gem 'redis', '~> 3.2'
 gem 'simple_form'
 gem 'httparty'
+gem 'rails_emoji_picker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

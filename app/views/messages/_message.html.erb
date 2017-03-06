@@ -1,5 +1,5 @@
 <div class="row">
   <%= image_tag("#{message.dialect}.png") %>
   <%= posted_by(message) %>
-  <%= message.text %>
+  <%= content_with_emoji message.text %>
 </div>

@@ -3,6 +3,6 @@ class User < ApplicationRecord
     %w(Yoda yoda),
     %w(Valley\ Girl valey),
     %w(Boston boston)
-  ].freeeze
+  ].freeze
   attr_accessor :username, :dialect
 end

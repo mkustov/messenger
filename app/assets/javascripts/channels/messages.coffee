@@ -30,6 +30,6 @@ jQuery(document).on 'turbolinks:load', ->
       dialect = $this.find('#message_dialect')
       if $.trim(textarea.val()).length > 0
         App.global_chat.send_message textarea.val(), user.val(), dialect.val()
-        textarea.val('')
       e.preventDefault()
+      $('.emoji-wysiwyg-editor').html('')
       return false
